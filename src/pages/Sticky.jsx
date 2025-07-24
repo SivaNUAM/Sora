@@ -5,7 +5,9 @@ import { Calendar } from "lucide-react";
 
 export default function Sticky() {
   const [show, setShow] = useState(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const onScroll = () => {
       const scrollY = window.scrollY;

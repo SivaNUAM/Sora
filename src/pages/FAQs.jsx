@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faqs } from "../data/faqs";
 
 const FAQs = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [openFaq, setOpenFaq] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 

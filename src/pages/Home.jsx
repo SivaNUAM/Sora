@@ -32,7 +32,9 @@ const Home = () => {
       window.lucide.createIcons();
     }
   }, []);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();

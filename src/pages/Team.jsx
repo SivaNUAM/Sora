@@ -1,8 +1,12 @@
 import { Mail, Phone, Award, MapPin } from "lucide-react";
 import { team } from "../data/team";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Sticky from "../pages/Sticky"; // Adjust the import path as necessary
 const Team = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       {/* Hero Section */}

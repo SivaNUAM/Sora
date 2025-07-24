@@ -146,6 +146,9 @@ const About = () => {
   ];
 
   const AnimatedStat = ({ number, label, delay }) => {
+      useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
     const [count, setCount] = useState(
       typeof number === "number" ? 0 : number
     );
@@ -191,6 +194,31 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
+        <motion.section
+              className="bg-gradient-to-b from-maroon-900 to-gray-800 py-20"
+              // variants={sectionVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <div className="container max-w-6xl mx-auto px-4 text-center">
+                <motion.h1
+                  className="text-4xl md:text-5xl font-bold text-white mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                >
+                  About Us
+                </motion.h1>
+                <motion.p
+                  className="text-lg text-gray-200 max-w-2xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                  Experience top-quality dental care with our expert team. Book your visit today with ease and convenience.
+                </motion.p>
+              </div>
+            </motion.section>
       <Sticky />
       <section id="why-choose-section" className="relative py-16 sm:py-20 md:py-28 bg-gradient-to-br from-white via-primary-50 to-white overflow-hidden">
         <div className="container-custom">

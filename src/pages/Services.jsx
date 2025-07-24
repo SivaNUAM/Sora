@@ -5,7 +5,9 @@ import { services } from "../data/services";
 
 const Services = () => {
   const cardsRef = useRef([]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
