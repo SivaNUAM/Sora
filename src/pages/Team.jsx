@@ -1,10 +1,36 @@
 import { Mail, Phone, Award, MapPin } from "lucide-react";
 import { team } from "../data/team";
+import { motion } from "framer-motion";
 import Sticky from "../pages/Sticky"; // Adjust the import path as necessary
 const Team = () => {
   return (
     <div>
       {/* Hero Section */}
+        <motion.section
+        className="bg-gradient-to-b from-maroon-900 to-gray-800 py-20"
+        // variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="container max-w-6xl mx-auto px-4 text-center">
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+           Our Teams
+          </motion.h1>
+          <motion.p
+            className="text-lg text-gray-200 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            Experience top-quality dental care with our expert team. Book your visit today with ease and convenience.
+          </motion.p>
+        </div>
+      </motion.section>
       <Sticky />
       <section id="why-choose-section"  className="bg-gradient-to-br from-primary-50 to-white section-padding">
         <div className="container-custom">

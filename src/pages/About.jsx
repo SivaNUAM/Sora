@@ -683,7 +683,8 @@ const About = () => {
           <div className="text-center mt-8 sm:mt-12">
             <a
               href="/team"
-              className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-primary-600 text-white rounded-full font-semibold text-sm sm:text-base hover:bg-primary-700 transition duration-300"
+                className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-neutral-200 text-neutral-900 rounded-full font-semibold text-sm sm:text-base hover:bg-red-900 hover:text-white transition duration-300"
+
             >
               Meet Our Team
             </a>
@@ -704,13 +705,12 @@ const About = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/appointments"
-              className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-primary-600 text-white rounded-full font-semibold text-sm sm:text-base hover:bg-primary-700 transition duration-300"
-            >
+             className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-neutral-200 text-neutral-900 rounded-full font-semibold text-sm sm:text-base hover:bg-red-900 hover:text-white transition duration-300">
               Schedule Your Visit
             </a>
             <a
               href="/contact"
-              className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-neutral-200 text-neutral-900 rounded-full font-semibold text-sm sm:text-base hover:bg-neutral-300 transition duration-300"
+              className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-neutral-200 text-neutral-900 rounded-full font-semibold text-sm sm:text-base hover:bg-red-900 hover:text-white transition duration-300"
             >
               Contact Us
             </a>

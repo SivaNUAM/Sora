@@ -33,16 +33,17 @@ export default function Sticky() {
   if (!show) return null;
 
   return (
-    <motion.button
+    <a href="/appointments">
+    <motion.button 
       className="fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full shadow-lg z-50 flex items-center gap-2"
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.1 }}
-      onClick={() => alert("Booking appointment clicked!")}
       aria-label="Book Appointment"
     >
       <Calendar size={20} />
       Book Appointment
     </motion.button>
+    </a>
   );
 }
