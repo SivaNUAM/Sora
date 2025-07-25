@@ -722,29 +722,34 @@ const About = () => {
 
       {/* CTA */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-primary-50 to-white">
-        <div className="container-custom text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
-            Ready to Experience Exceptional Dental Care?
-          </h2>
-          <p className="text-base sm:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
-            Join our family of satisfied patients and discover the SORA
-            difference.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/appointments"
-             className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-neutral-200 text-neutral-900 rounded-full font-semibold text-sm sm:text-base hover:bg-red-900 hover:text-white transition duration-300">
-              Schedule Your Visit
-            </a>
-            <a
-              href="/contact"
-              className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-neutral-200 text-neutral-900 rounded-full font-semibold text-sm sm:text-base hover:bg-red-900 hover:text-white transition duration-300"
-            >
-              Contact Us
-            </a>
-          </div>
+      <div className="container-custom text-center">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
+          Ready to Experience Exceptional Dental Care?
+        </h2>
+        <p className="text-base sm:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
+          Join our family of satisfied patients and discover the SORA difference.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/appointments"
+            className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#800000] border border-[#800000] rounded-full font-semibold text-sm sm:text-base 
+                      transition-all duration-500 ease-in-out 
+                      hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.6)] hover:scale-105"
+          >
+            Schedule Your Visit
+          </a>
+          <a
+            href="/contact"
+            className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#800000] border border-[#800000] rounded-full font-semibold text-sm sm:text-base 
+                      transition-all duration-500 ease-in-out 
+                      hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.6)] hover:scale-105"
+          >
+            Contact Us
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
+
     </div>
   );
 };

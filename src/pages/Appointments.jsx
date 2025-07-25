@@ -377,7 +377,7 @@ const Appointments = () => {
 
                     <motion.button
                       type="submit"
-                      className="w-full flex items-center justify-center bg-maroon-600 text-white py-3 px-4 rounded-lg hover:bg-maroon-700 transition-colors duration-300"
+                     className="w-full flex items-center justify-center bg-white text-[#800000] border border-[#800000] py-3 px-4 rounded-lg transition-colors duration-300 hover:bg-[#800000] hover:text-white"
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"

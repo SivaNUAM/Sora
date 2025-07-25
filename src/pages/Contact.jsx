@@ -478,48 +478,34 @@ const Contact = () => {
           </motion.section>
 
           {/* CTA Section */}
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={sectionVariants}
-            className="py-20 bg-gradient-to-br from-primary-600 to-primary-800"
-          >
-            <div className="container mx-auto px-4 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-                  Ready to Schedule Your Visit?
-                </h2>
-                <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-                  Don't wait to achieve your best smile. Contact us today to schedule your appointment.
-                </p>
-              </motion.div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.a
-                  href="/appointments"
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="bg-white text-primary-600 hover:bg-neutral-100 font-semibold py-3 px-8 rounded-xl transition-all duration-300"
-                >
-                  Book Appointment
-                </motion.a>
-                <motion.a
-                  href="tel:(555) 123-4567"
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-xl transition-all duration-300"
-                >
-                  Call Now
-                </motion.a>
-              </div>
-            </div>
-          </motion.section>
+               <section className="py-16 sm:py-20 bg-gradient-to-br from-primary-50 to-white">
+   <div className="container-custom text-center">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
+     Don't wait to achieve your best smile. Contact us today to schedule your appointment.
+    </h2>
+    <p className="text-base sm:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
+      Join our family of satisfied patients and discover the SORA difference.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/appointments"
+        className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#800000] border border-[#800000] rounded-full font-semibold text-sm sm:text-base 
+                   transition-all duration-500 ease-in-out 
+                   hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.6)] hover:scale-105"
+      >
+        Schedule Your Visit
+      </a>
+      <a
+        href="/contact"
+        className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#800000] border border-[#800000] rounded-full font-semibold text-sm sm:text-base 
+                   transition-all duration-500 ease-in-out 
+                   hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.6)] hover:scale-105"
+      >
+        Contact Us
+      </a>
+    </div>
+    </div>
+  </section>
         </div>
       );
     };

@@ -237,31 +237,35 @@ const Team = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary-800">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-            Ready to Meet Our Team?
-          </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Schedule an appointment and experience the SORA difference with our
-            expert dental team.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/appointments"
-              className="bg-white text-primary-800 hover:bg-neutral-100 font-medium py-3 px-8 rounded-xl transition-colors duration-200"
-            >
-              Book Appointment
-            </a>
-            <a
-              href="/contact"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-800 font-medium py-3 px-8 rounded-xl transition-colors duration-200"
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </section>
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-primary-50 to-white">
+  <div className="container-custom text-center">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
+      Ready to Experience Exceptional Dental Care?
+    </h2>
+    <p className="text-base sm:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
+      Join our family of satisfied patients and discover the SORA difference.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/appointments"
+        className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#800000] border border-[#800000] rounded-full font-semibold text-sm sm:text-base 
+                   transition-all duration-500 ease-in-out 
+                   hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.6)] hover:scale-105"
+      >
+        Schedule Your Visit
+      </a>
+      <a
+        href="/contact"
+        className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#800000] border border-[#800000] rounded-full font-semibold text-sm sm:text-base 
+                   transition-all duration-500 ease-in-out 
+                   hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.6)] hover:scale-105"
+      >
+        Contact Us
+      </a>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };

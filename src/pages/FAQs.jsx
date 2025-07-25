@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faqs } from "../data/faqs";
+import Sticky from "./Sticky";
 
 const FAQs = () => {
     useEffect(() => {
@@ -21,7 +22,8 @@ const FAQs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div id="why-choose-section"   className="min-h-screen bg-neutral-50">
+       <Sticky />
       {/* Hero Section */}
         <motion.section
         className="bg-gradient-to-b from-maroon-900 to-gray-800 py-20"
