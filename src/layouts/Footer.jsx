@@ -9,189 +9,124 @@ import {
   Twitter,
   Linkedin,
 } from "lucide-react";
-
+import logo from '../assets/logo.png'
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-neutral-900 text-white">
+    <footer className="bg-gray-800 text-white">
       {/* Main footer content */}
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-[#800000] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">S</span>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white">SORA</h3>
-                <p className="text-sm text-neutral-400">Dental Clinic</p>
-              </div>
-            </div>
+           <div className="flex items-center space-x-2 mb-6">
+         <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-transparent overflow-hidden">
+        <img
+          src={logo}
+          alt="SORA Logo"
+          className="w-full h-full object-contain"
+        />
+      </div>
+            <div>
+        <h3 className="text-2xl font-bold text-white">SORA</h3>
+        <p className="text-sm text-neutral-400">Dental Clinic</p>
+        </div>
+          </div>
+
             <p className="text-neutral-300 mb-6">
               Providing exceptional dental care with a focus on patient comfort
               and advanced technology. Your smile is our priority.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-[#f87171] transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-[#f87171] transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-[#f87171] transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-[#f87171] transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
+           <div className="flex space-x-4">
+  {[
+    { Icon: Facebook, link: "#" },
+    { Icon: Instagram, link: "#" },
+    { Icon: Twitter, link: "#" },
+    { Icon: Linkedin, link: "#" },
+  ].map(({ Icon, link }, i) => (
+    <a
+      key={i}
+      href={link}
+      className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#800000] text-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_20px_rgba(128,0,0,0.6)] hover:scale-110"
+    >
+      <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-125" />
+    </a>
+  ))}
+</div>
+
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/team"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/faqs"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+        <div>
+  <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+  <ul className="space-y-3">
+    {[
+      { to: "/", label: "Home" },
+      { to: "/about", label: "About Us" },
+      { to: "/services", label: "Services" },
+      { to: "/team", label: "Our Team" },
+      { to: "/faqs", label: "FAQs" },
+      { to: "/contact", label: "Contact" },
+    ].map(({ to, label }, i) => (
+      <li key={i} className="transition-transform duration-300 hover:-translate-y-1">
+        <Link
+          to={to}
+          className="text-neutral-300 hover:text-[#800000] transition-colors"
+        >
+          {label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Our Services</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/services"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  General Dentistry
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Cosmetic Dentistry
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Orthodontics
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Dental Implants
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Emergency Care
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-neutral-300 hover:text-[#f87171] transition-colors"
-                >
-                  Pediatric Dentistry
-                </Link>
-              </li>
-            </ul>
-          </div>
+{/* Services */}
+<div>
+  <h4 className="text-lg font-semibold mb-6">Our Services</h4>
+  <ul className="space-y-3">
+    {[
+      "General Dentistry",
+      "Cosmetic Dentistry",
+      "Orthodontics",
+      "Dental Implants",
+      "Emergency Care",
+      "Pediatric Dentistry",
+    ].map((service, i) => (
+      <li key={i} className="transition-transform duration-300 hover:-translate-y-1">
+        <Link
+          to="/services"
+          className="text-neutral-300 hover:text-[#800000] transition-colors"
+        >
+          {service}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-[#f87171] mt-0.5" />
+                <MapPin className="w-5 h-5 text-[#800000] mt-0.5" />
                 <div>
                   <p className="text-neutral-300">123 Dental Street</p>
                   <p className="text-neutral-300">City, State 12345</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-[#f87171]" />
+                <Phone className="w-5 h-5 text-[#800000]" />
                 <span className="text-neutral-300">(555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-[#f87171]" />
+                <Mail className="w-5 h-5 text-[#800000]" />
                 <span className="text-neutral-300">info@soradental.com</span>
               </div>
               <div className="flex items-start space-x-3">
-                <Clock className="w-5 h-5 text-[#f87171] mt-0.5" />
+                <Clock className="w-5 h-5 text-[#800000] mt-0.5" />
                 <div>
                   <p className="text-neutral-300">Mon-Fri: 8AM-6PM</p>
                   <p className="text-neutral-300">Sat: 9AM-2PM</p>

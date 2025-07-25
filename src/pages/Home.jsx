@@ -15,16 +15,32 @@ import {
   Shield,
 } from "lucide-react";
 import video2 from "../assets/video/video2.mp4";
-import { services } from "../data/services";
+import { servicesData } from "../data/servicesData";
 import { testimonials } from "../data/testimonials";
 import { news } from "../data/news";
 
 const Home = () => {
-  const featuredServices = services.slice(0, 3);
+  // const featuredServices = services.slice(0, 3);
   const featuredTestimonials = testimonials.slice(0, 8);
   const autoSlideInterval = 5000;
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const allServices = servicesData.flatMap(category => category.services);
+
+  const [randomServices, setRandomServices] = useState(() =>
+    [...allServices].sort(() => 0.5 - Math.random()).slice(0, 3)
+  );
+
+  // Automatically shuffle every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRandomServices(
+        [...allServices].sort(() => 0.5 - Math.random()).slice(0, 3)
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [allServices]);
 
   useEffect(() => {
     // Initialize Lucide icons
@@ -152,45 +168,78 @@ const Home = () => {
       </section>
 
       {/* Featured Services */}
-      <section  className="section-padding bg-neutral-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">Our Services</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">Comprehensive dental care for the whole family, from routine checkups to advanced procedures.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredServices.map((service, index) => (
-              <motion.div key={service.id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 overflow-hidden" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.2 }}>
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-serif font-bold text-[#800000] mb-4">
+            Featured Services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore a selection of our most popular dental treatments designed to keep your smile healthy and bright.
+          </p>
+        </div>
+
+        {/* Cards with fade animation */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <AnimatePresence>
+            {randomServices.map(service => (
+              <motion.div
+                key={service.id}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 overflow-hidden"
+              >
                 <div className="h-48 w-full overflow-hidden">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-4">{service.title}</h3>
+                  <h3 className="text-xl font-serif font-semibold text-[#800000] mb-4">{service.title}</h3>
                   <p className="text-neutral-600 mb-6">{service.description}</p>
                   <div className="space-y-2 mb-6">
-                    {service.features.slice(0, 3).map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-primary-800" />
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center space-x-2">
+                        <svg className="w-4 h-4 text-[#800000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
                         <span className="text-sm text-neutral-600">{feature}</span>
                       </div>
                     ))}
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-primary-800 font-semibold">{service.price}</span>
-                    <Link to={`/services/${service.id}`} className="text-primary-800 hover:text-primary-900 font-medium text-sm flex items-center">
+                    <Link
+                      to={`/services/${service.id}`}
+                      className="bg-[#800000] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#600000] transition-colors duration-300 flex items-center"
+                    >
                       Learn More
-                      <ArrowRight className="ml-1 w-4 h-4" />
+                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                      </svg>
                     </Link>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
-          <div className="text-center">
-            <Link to="/services" className="btn-primary inline-flex items-center justify-center">See All Services</Link>
-          </div>
+          </AnimatePresence>
         </div>
-      </section>
+
+        {/* See All Button */}
+        <div className="text-center">
+          <Link
+            to="/services"
+            className="bg-white text-[#800000] border-2 border-[#800000] font-semibold py-3 px-8 rounded-full hover:bg-[#800000] hover:text-white transition-colors duration-300"
+          >
+            See All Services
+          </Link>
+        </div>
+      </div>
+    </section>
 
       {/* Testimonials */}
       <section  className="section-padding bg-white">

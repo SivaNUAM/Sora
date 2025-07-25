@@ -1,187 +1,257 @@
 import { Link } from "react-router-dom";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect,useState } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import { services } from "../data/services";
+import { servicesData } from "../data/servicesData";
+import pedia from '../assets/images/pedia.png'
+import {motion,useInView} from "framer-motion"
+  const ServiceCard = ({ service, index }) => {
+      const ref = useRef(null);
+      const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-const Services = () => {
-  const cardsRef = useRef([]);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0", "scale-100");
-            entry.target.classList.remove("opacity-0", "translate-y-12", "scale-95");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+      return (
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
+          transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+          className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-500"
+        >
+          <div className="relative w-full h-56 overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <div className="p-6 flex flex-col justify-between h-[320px]">
+            <div>
+              <h3 className="text-xl font-serif font-bold text-maroon mb-3">{service.title}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">{service.description}</p>
+              <ul className="space-y-2 mb-4">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center text-sm text-gray-600">
+                    <svg className="w-4 h-4 text-maroon-light mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex justify-between items-center">
+              <div>
+                <span className="text-sm font-semibold text-maroon">{service.price}</span>
+                <span className="text-sm text-gray-500 ml-2">{service.duration}</span>
+              </div>
+              <Link
+                to={`/services/${service.id}`}
+                  className="group inline-flex items-center bg-white text-[#800000] border-2 border-[#800000] px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-[#800000] hover:text-white hover:shadow-lg"
 
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
-
-    return () => {
-      cardsRef.current.forEach((card) => {
-        if (card) observer.unobserve(card);
-      });
+              >
+                Learn More
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+      );
     };
-  }, []);
 
-  // Rectangle → Square → Square → Rectangle
-  const getCardStyle = (rowIndex, cardIndex) => {
-    const isEvenRow = rowIndex % 2 === 0;
-    if ((isEvenRow && cardIndex === 0) || (!isEvenRow && cardIndex === 1)) {
-      return "h-[380px]"; // Rectangle - a bit taller
-    }
-    return "h-[400px]"; // Square
-  };
+    const ServiceCategory = ({ category, headerImage, services }) => {
+      const [isOpen, setIsOpen] = useState(false);
 
-  const rows = services.reduce((acc, service, index) => {
-    const row = Math.floor(index / 2);
-    if (!acc[row]) acc[row] = [];
-    acc[row].push(service);
-    return acc;
-  }, []);
-
-  return (
-    <div>
-      {/* Intro */}
-      <section className="bg-gradient-to-br from-primary-50 to-white py-12">
-        <div className="container-custom text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl lg:text-4xl font-bold text-neutral-900 mb-4">
-            Our Dental Services
-          </h1>
-          <p className="text-lg text-neutral-600 leading-relaxed">
-            Comprehensive dental care for the whole family. From routine checkups to advanced procedures, we provide all the services you need for a healthy, beautiful smile.
-          </p>
+      return (
+        <div className="mb-12">
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-full text-left relative h-28 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.3 }}
+          >
+            <img
+              src={headerImage}
+              alt={`${category} header`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-maroon/60 flex items-center justify-between px-8">
+              <h2 className="text-3xl font-serif font-bold text-white">{category}</h2>
+              <svg
+                className={`w-7 h-7 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} text-white`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </motion.button>
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+            transition={{ duration: 0.6, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
+              {services.map((service, idx) => (
+                <ServiceCard key={service.id} service={service} index={idx} />
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </section>
+      );
+    };
 
-      {/* Service Section */}
-      <section className="py-12 bg-white">
-        <div className="container-custom">
-          <div className="flex flex-col gap-8">
-            {rows.map((row, rowIndex) => (
-              <div key={rowIndex} className="flex flex-col md:flex-row gap-6 justify-center w-full">
-                {row.map((service, cardIndex) => {
-                  const globalIndex = rowIndex * 2 + cardIndex;
-                  return (
-                    <div
-                      key={service.id}
-                      ref={(el) => (cardsRef.current[globalIndex] = el)}
-                      className={`bg-white rounded-xl overflow-hidden border border-neutral-200 flex flex-col opacity-0 translate-y-12 scale-95 transition-all duration-700 ease-out hover:shadow-[0_0_15px_rgba(0,170,255,0.3),0_0_30px_rgba(0,170,255,0.15)] hover:scale-105 hover:z-10 w-full ${getCardStyle(rowIndex, cardIndex)}`}
-                    >
-                      {/* Image */}
-                      <div className="relative w-full h-48 md:h-52 lg:h-[65%] overflow-hidden">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
-                        />
-                      </div>
+    const Services = () => {
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
-                      {/* Details */}
-                      <div className="p-5 pb-20 relative flex flex-col justify-start h-full box-border">
-                        <h3 className="text-base font-semibold text-neutral-900 mb-2">
-                          {service.title}
-                        </h3>
-                        <p className="text-xs text-neutral-600 mb-2">{service.description}</p>
-
-                        {/* Features */}
-                        <ul className="mb-2 space-y-1">
-                          {service.features.slice(0, 3).map((feature, index) => (
-                            <li key={index} className="flex items-center text-xs text-neutral-600">
-                              <CheckCircle className="w-3.5 h-3.5 text-primary-800 mr-2" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Price & Duration */}
-                        <div className="flex justify-between text-xs text-neutral-700 mb-2">
-                          <span className="font-semibold text-primary-800">{service.price}</span>
-                          <span>{service.duration}</span>
-                        </div>
-
-                        {/* Arrow */}
-                        <button
-                          onClick={() => (window.location.href = `/services/${service.id}`)}
-                          className="absolute bottom-3 right-3 bg-black text-white p-1.5 rounded-full shadow-md hover:bg-neutral-800 transition-colors"
-                        >
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-12 bg-neutral-50">
-        <div className="container-custom">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-2">
-              Why Choose Our Services
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              We combine advanced technology with compassionate care to deliver exceptional results.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: "🏆", title: "Expert Care", text: "Our experienced team uses the latest techniques and technology to ensure the best possible outcomes." },
-              { icon: "💝", title: "Patient Comfort", text: "We prioritize your comfort with a relaxing environment and gentle, caring approach to treatment." },
-              { icon: "🔬", title: "Advanced Technology", text: "State-of-the-art equipment and modern techniques for precise, efficient, and comfortable treatments." }
-            ].map((item, index) => (
-              <div key={index} className="text-center space-y-3">
-                <div className="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto">
-                  <span className="text-xl">{item.icon}</span>
+      return (
+        <div className="font-sans bg-white-custom min-h-screen">
+          {/* Intro Section with Header Image */}
+          <section className="relative bg-gradient-to-r from-maroon to-maroon-dark">
+            <div className="relative w-full h-[400px] overflow-hidden">
+              {/* <img
+                src={pedia}
+                alt="Dental Care Banner"
+                className="w-full h-full object-cover"
+              /> */}
+              <div className="absolute inset-0 bg-maroon/60 flex items-center justify-center">
+                <div className="text-center px-6">
+                  <motion.h1
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-5xl md:text-6xl font-serif font-bold text-white mb-4"
+                  >
+                    Our Dental Services
+                  </motion.h1>
+                  <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    className="text-xl text-white-custom max-w-3xl mx-auto"
+                  >
+                    Discover our comprehensive dental care services, designed to provide you with a healthy and confident smile through expert treatment and personalized care.
+                  </motion.p>
                 </div>
-                <h3 className="text-lg font-semibold text-neutral-900">{item.title}</h3>
-                <p className="text-neutral-600 text-sm">{item.text}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
 
-      {/* CTA */}
-      <section className="py-12 bg-primary-800">
-        <div className="container-custom text-center">
-          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3">
-            Ready to Transform Your Smile?
-          </h2>
-          <p className="text-lg text-primary-100 mb-6 max-w-xl mx-auto">
-            Schedule a consultation to discuss your dental needs and create a personalized treatment plan.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/appointments"
-              className="bg-white text-primary-800 hover:bg-neutral-100 font-medium py-2.5 px-6 rounded-lg transition-colors duration-200"
-            >
-              Book Consultation
-            </Link>
-            <Link
-              to="/contact"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-800 font-medium py-2.5 px-6 rounded-lg transition-colors duration-200"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+          {/* Services Section */}
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-6">
+              {servicesData.map((category, index) => (
+                <ServiceCategory
+                  key={index}
+                  category={category.category}
+                  headerImage={category.headerImage}
+                  services={category.services}
+                />
+              ))}
+            </div>
+          </section>
 
+          {/* Why Choose Us Section */}
+          <section className="py-20 bg-white-custom">
+            <div className="max-w-7xl mx-auto px-6 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-4xl font-serif font-bold text-maroon mb-6"
+              >
+                Why Choose Us
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="text-lg text-gray-600 max-w-2xl mx-auto mb-12"
+              >
+                Our commitment to excellence ensures you receive the highest quality dental care in a comfortable and welcoming environment.
+              </motion.p>
+              <div className="grid md:grid-cols-3 gap-10">
+                {[
+                  { icon: "🏆", title: "Expert Care", text: "Our skilled team uses advanced techniques for exceptional results." },
+                  { icon: "💝", title: "Patient Comfort", text: "We create a relaxing environment with a compassionate approach." },
+                  { icon: "🔬", title: "Advanced Technology", text: "Cutting-edge equipment for precise and comfortable treatments." },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+                    className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-500"
+                  >
+                    <div className="w-14 h-14 bg-maroon-light rounded-full flex items-center justify-center mx-auto mb-6">
+                      <span className="text-3xl text-white">{item.icon}</span>
+                    </div>
+                    <h3 className="text-xl font-serif font-semibold text-maroon mb-3">{item.title}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{item.text}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+<section className="py-20 bg-white text-[#800000]">
+  <div className="max-w-7xl mx-auto px-6 text-center">
+    <motion.h2
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="text-4xl font-serif font-bold mb-6"
+    >
+      Transform Your Smile Today
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      className="text-lg mb-8 max-w-xl mx-auto"
+    >
+      Book a consultation to start your journey toward a healthier, more confident smile.
+    </motion.p>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+      className="flex flex-col sm:flex-row gap-4 justify-center"
+    >
+      {/* Button 1 */}
+      <Link
+        to="/appointments"
+        className="bg-white text-[#800000] font-semibold py-3 px-8 rounded-full border-2 border-[#800000] transition-all duration-300 hover:bg-[#800000] hover:text-white"
+      >
+        Book Consultation
+      </Link>
+      {/* Button 2 */}
+      <Link
+        to="/contact"
+        className="bg-white text-[#800000] font-semibold py-3 px-8 rounded-full border-2 border-[#800000] transition-all duration-300 hover:bg-[#800000] hover:text-white"
+      >
+        Contact Us
+      </Link>
+    </motion.div>
+  </div>
+</section>
+
+
+        </div>
+      );
+    };
 export default Services;
