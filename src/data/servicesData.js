@@ -155,7 +155,7 @@ import cos from "../assets/images/cos.jpg"
     // Other categories (Restorative Care, Cosmetic Procedures, Advanced Services) remain unchanged
     {
         category: "Restorative Care",
-        headerImage: rest,
+        headerImage: Rest,
         services: [
             {
                 id: 6,
