@@ -13,7 +13,7 @@ import cleaning from '../assets/images/cleaning.jpg'
 import Xray from "../assets/images/Xray.jpg"
 import Advanced from '../assets/images/Advanced.jpg'
 import prev from "../assets/images/prev.jpg"
-import rest from "../assets/images/rest.jpg"
+import rest from "../assets/images/Rest.jpg"
 import cos from "../assets/images/cos.jpg"
   export const servicesData = [
     {
