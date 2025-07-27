@@ -40,10 +40,10 @@ const Footer = () => {
             </p>
            <div className="flex space-x-4">
   {[
-    { Icon: Facebook, link: "#" },
-    { Icon: Instagram, link: "#" },
-    { Icon: Twitter, link: "#" },
-    { Icon: Linkedin, link: "#" },
+    { Icon: Facebook, link: "https://www.facebook.com/people/Sora-Dental/100068991856553/#" },
+    { Icon: Instagram, link: "https://www.instagram.com/soradental_hyd/?igsh=YTFlZWh0b2lrOWpl#" },
+    // { Icon: Twitter, link: "#" },
+    { Icon: Linkedin, link: "https://www.linkedin.com/in/dr-sonica-raju-355270178/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in" },
   ].map(({ Icon, link }, i) => (
     <a
       key={i}
@@ -113,13 +113,13 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#800000] mt-0.5" />
                 <div>
-                  <p className="text-neutral-300">123 Dental Street</p>
-                  <p className="text-neutral-300">City, State 12345</p>
+                  <p className="text-neutral-300">Third Floor, Plot no 8-1 & 8-2, Khajaguda - Nanakramguda Rd, Prashant Hills, Rai Durg</p>
+                  <p className="text-neutral-300">Hyderabad, Telangana 500032</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#800000]" />
-                <span className="text-neutral-300">(555) 123-4567</span>
+                <span className="text-neutral-300">+91 093987 20680</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#800000]" />
@@ -128,8 +128,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Clock className="w-5 h-5 text-[#800000] mt-0.5" />
                 <div>
-                  <p className="text-neutral-300">Mon-Fri: 8AM-6PM</p>
-                  <p className="text-neutral-300">Sat: 9AM-2PM</p>
+                  <p className="text-neutral-300">Mon-Sat: 10AM-8PM</p>
+                  <p className="text-neutral-300">Sun: 10AM-2PM</p>
                   <p className="text-neutral-300">Sun: Emergency Only</p>
                 </div>
               </div>

@@ -39,26 +39,26 @@ const Contact = () => {
         {
           icon: Phone,
           title: "Phone",
-          details: ["(555) 123-4567", "(555) 123-4568 (Emergency)"],
-          action: "tel:(555) 123-4567",
+          details: ["+91 093987 20680", "+91 093987 20680 (Emergency)"],
+          // action: "tel:(555) 123-4567",
         },
         {
           icon: Mail,
           title: "Email",
           details: ["info@soradental.com", "appointments@soradental.com"],
-          action: "mailto:info@soradental.com",
+          // action: "mailto:info@soradental.com",
         },
         {
           icon: MapPin,
           title: "Address",
-          details: ["123 Dental Street", "City, State 12345"],
-          action: "https://maps.google.com",
+          details: ["Third Floor, Plot no 8-1 & 8-2, Khajaguda - Nanakramguda Rd, Prashant Hills, Rai Durg", "Hyderabad, Telangana 500032"],
+          // action: "https://maps.google.com",
         },
         {
           icon: Clock,
           title: "Hours",
-          details: ["Mon-Fri: 8AM-6PM", "Sat: 9AM-2PM", "Sun: Emergency Only"],
-          action: null,
+          details: ["Mon-Sat: 10AM-8PM", "Sun: 10AM-2PM", "Sun: Emergency Only"],
+          // action: null,
         },
       ];
 
@@ -362,47 +362,60 @@ const Contact = () => {
                 </motion.div>
 
                 {/* Map */}
-                <motion.div
-                  variants={cardVariants}
-                  className="bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-xl"
-                >
-                  <h2 className="text-3xl font-bold text-neutral-900 mb-6">
-                    Visit Our Office
-                  </h2>
-                  <div className="bg-neutral-50 rounded-xl h-80 flex items-center justify-center relative overflow-hidden">
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-primary-100/30 to-neutral-50"
-                      initial={{ y: 50 }}
-                      whileInView={{ y: 0 }}
-                      transition={{ duration: 1, ease: "easeOut" }}
-                    />
-                    <div className="text-center relative z-10">
-                      <MapPin className="w-16 h-16 text-primary-600 mx-auto mb-4" />
-                      <p className="text-neutral-600 font-semibold">Interactive Map</p>
-                      <p className="text-sm text-neutral-600 mt-2">
-                        Map integration would go here
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-6 space-y-3">
-                    <h3 className="font-bold text-neutral-900">SORA Dental Clinic</h3>
-                    <p className="text-neutral-600">123 Dental Street</p>
-                    <p className="text-neutral-600">City, State 12345</p>
-                    <div className="pt-4">
-                      <motion.a
-                        href="https://maps.google.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                        className="inline-block text-primary-600 hover:text-primary-800 font-semibold text-sm transition-colors duration-200"
-                      >
-                        Get Directions →
-                      </motion.a>
-                    </div>
-                  </div>
-                </motion.div>
+               <motion.div
+  variants={cardVariants}
+  className="bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-xl"
+>
+  <h2 className="text-3xl font-bold text-neutral-900 mb-6">
+    Visit Our Office
+  </h2>
+  <div className="bg-neutral-50 rounded-xl h-80 flex items-center justify-center relative overflow-hidden">
+    <motion.div
+      className="absolute inset-0 bg-gradient-to-br from-primary-100/30 to-neutral-50"
+      initial={{ y: 50 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+    />
+    <div className="text-center relative z-10 w-full h-full">
+      <MapPin className="w-16 h-16 text-primary-600 mx-auto mb-4" />
+      {/* Replace placeholder text with iframe */}
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.8126519383213!2d78.37679727421038!3d17.420776301844242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48a65b1a510c87ed%3A0xa754634a72274407!2sSora%20Dental!5e0!3m2!1sen!2sin!4v1753612904166!5m2!1sen!2sin"
+        width="100%"
+        height="260"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Sora Dental Location"
+      />
+      {/* Optional: You can keep or remove the "Interactive Map" and description text below */}
+      <p className="text-neutral-600 font-semibold mt-2">Interactive Map</p>
+      <p className="text-sm text-neutral-600 mt-1">
+        Find us here on the map
+      </p>
+    </div>
+  </div>
+  <div className="mt-6 space-y-3">
+    <h3 className="font-bold text-neutral-900">SORA Dental Clinic</h3>
+    <p className="text-neutral-600">Third Floor, Plot no 8-1 & 8-2, Khajaguda - Nanakramguda Rd, Prashant Hills, Rai Durg</p>
+    <p className="text-neutral-600">Hyderabad, Telangana 500032</p>
+    <div className="pt-4">
+      <motion.a
+        href=""
+        target="_blank"
+        rel="noopener noreferrer"
+        variants={buttonVariants}
+        whileHover="hover"
+        whileTap="tap"
+        className="inline-block text-primary-600 hover:text-primary-800 font-semibold text-sm transition-colors duration-200"
+      >
+        Get Directions →
+      </motion.a>
+    </div>
+  </div>
+</motion.div>
+
               </div>
             </div>
           </motion.section>
@@ -440,12 +453,12 @@ const Contact = () => {
                     </h3>
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-neutral-600">Monday - Friday</span>
-                        <span className="font-semibold text-neutral-900">8:00 AM - 6:00 PM</span>
+                        <span className="text-neutral-600">Monday - Saturday</span>
+                        <span className="font-semibold text-neutral-900">10:00 AM - 8:00 PM</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-neutral-600">Saturday</span>
-                        <span className="font-semibold text-neutral-900">9:00 AM - 2:00 PM</span>
+                        <span className="text-neutral-600">Sunday</span>
+                        <span className="font-semibold text-neutral-900">10:00 AM - 2:00 PM</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-neutral-600">Sunday</span>
@@ -465,7 +478,7 @@ const Contact = () => {
                     </p>
                     <div className="space-y-2">
                       <p className="text-sm text-neutral-600">
-                        <strong>Emergency Phone:</strong> (555) 123-4568
+                        <strong>Emergency Phone:</strong> 093987 20680
                       </p>
                       <p className="text-sm text-neutral-600">
                         <strong>Available:</strong> 24/7 for emergencies

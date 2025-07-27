@@ -6,7 +6,7 @@
       const [messages, setMessages] = useState([
         {
           sender: "bot",
-          text: "Hi! 👋 Welcome to SmileCare Dental Clinic. How can we assist you today?",
+          text: "Hi! 👋 Welcome to Sora Dental Clinic. How can we assist you today?",
           time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
         },
       ]);
@@ -33,35 +33,42 @@
       ];
 
       const extendedReplies = {
-        hi: "Hey! 😊 Excited to help with your dental needs at SmileCare! What's up?",
-        hello: "Hi there! Welcome to SmileCare Dental Clinic. How can I make your day brighter?",
-        "how are you": "I'm as chipper as a polished tooth! 😁 What's on your mind?",
-        "i am fine": "Awesome to hear! 😄 Ready to keep that smile perfect? What's next?",
-        "who are you": "I'm SmileBot, your go-to assistant for all things SmileCare Dental! 🦷",
-        thanks: "No problem! 😊 Happy to help with your smile. Anything else?",
-        "thank you": "You're welcome! 😁 Let me know how else I can assist.",
-        "thankyou": "You're welcome! 😁 Let me know how else I can assist.",
-        okay: "Okay! 😊 Happy to help further if needed.",
-        bye: "See ya! Keep that smile shining bright! 😊",
-        "good morning": "Morning! 🌞 Ready to make your smile sparkle today?",
-        "good night": "Night! 🪥 Brush and floss before bed for a dazzling smile!",
-        "your name": "I'm SmileBot, here to simplify your dental queries at SmileCare! 🦷",
-        "dental checkup": "Our checkup includes cleaning, X-rays, and oral health review—every 6 months keeps smiles healthy! Book now?",
-        "how to brush": "Brush twice daily with fluoride toothpaste. Gentle circles, include tongue and gums! Want brushing tips?",
-        "flossing tips": "Floss daily with 18” of floss, gently slide between teeth. Need a step-by-step guide?",
-        emergency: "Please call our 24/7 helpline: +91 98765 43210. Or type your issue here, and we'll guide you as fast as possible.",
-        swelling: "Facial swelling can be serious. Apply a cold compress and seek urgent care. Call our emergency line: +91 98765 43210.",
-        bleedinggums: "Bleeding gums may indicate infection. Rinse gently with saltwater and schedule an urgent checkup.",
-       toothache: "A toothache could be caused by decay, infection, or injury. Rinse with warm saltwater, avoid very hot or cold foods, and take an over-the-counter pain reliever if needed. Please call our 24/7 emergency helpline: +91 98765 43210 to book an urgent checkup.",
-        "knocked out tooth": "Keep the tooth moist in milk or saliva and call our emergency helpline immediately.",
-        "severe toothache": "Take an over-the-counter pain reliever and avoid very hot/cold foods. Contact us right away.",
-        "jaw pain": "Jaw pain could indicate TMJ or injury. Avoid chewing hard foods and call for evaluation.",
-        "broken braces": "Cover sharp ends with orthodontic wax and book a quick repair appointment.",
-        "bleeding": "Continuous bleeding in the mouth can indicate infection or injury. Rinse gently with saltwater, apply light pressure with a clean gauze, and avoid spitting. Please call our 24/7 emergency helpline: +91 98765 43210 for urgent assistance.",
-        "loose crown": "Try to keep the crown in place with dental cement or toothpaste. Contact us ASAP.",
-        pain: "Persistent or severe tooth pain may indicate infection or nerve issues. Take an over-the-counter pain reliever, avoid very hot or cold foods, and book an urgent appointment with us. If the pain is unbearable, please call our 24/7 emergency line: +91 98765 43210.",
-        abscess: "Dental abscess is an emergency. Rinse with warm salt water and seek urgent treatment.",
-        chipped: "Save any broken tooth pieces, rinse your mouth with warm water, and schedule an emergency appointment.",
+        hi: "Hey! 😊 Excited to help with your dental needs at Sora Dental! What's up?",
+  hello: "Hi there! Welcome to Sora Dental Clinic. How can I make your day brighter?",
+  "book appointment": "Awesome! Let's book an appointment. Please provide your name, phone number",
+  "sora dental":"Sora Dental is a trusted dental clinic in Gachibowli, Hyderabad, offering expert dental care.",
+  "who is sora dental": "Sora Dental is a trusted dental clinic in Gachibowli, Hyderabad, offering expert dental care.",
+  "what is sora dental": "Sora Dental provides a wide range of dental treatments including checkups, cosmetic dentistry, and preventive care.",
+  "rating of soradental": "Currently, no public ratings are available. Please contact Sora Dental directly for more info.",
+  "how to book sora dental appointment": "You can book an appointment by calling Sora Dental at 9398720680.",
+  "where is sora dental located": "Sora Dental is located in Gachibowli, Hyderabad.",
+  "how are you": "I'm as chipper as a polished tooth! 😁 What's on your mind?",
+  "i am fine": "Awesome to hear! 😄 Ready to keep that smile perfect? What's next?",
+  "who are you": "I'm SmileBot, your go-to assistant for all things Sora Dental! 🦷",
+  thanks: "No problem! 😊 Happy to help with your smile. Anything else?",
+  "thank you": "You're welcome! 😁 Let me know how else I can assist.",
+  "thankyou": "You're welcome! 😁 Let me know how else I can assist.",
+  okay: "Okay! 😊 Happy to help further if needed.",
+  bye: "See ya! Keep that smile shining bright! 😊",
+  "good morning": "Morning! 🌞 Ready to make your smile sparkle today?",
+  "good night": "Night! 🪥 Brush and floss before bed for a dazzling smile!",
+  "your name": "I'm SmileBot, here to simplify your dental queries at Sora Dental! 🦷",
+  "dental checkup": "Our checkup includes cleaning, X-rays, and oral health review—every 6 months keeps smiles healthy! Book now?",
+  "how to brush": "Brush twice daily with fluoride toothpaste. Gentle circles, include tongue and gums! Want brushing tips?",
+  "flossing tips": "Floss daily with 18” of floss, gently slide between teeth. Need a step-by-step guide?",
+  emergency: "Please call our 24/7 helpline: +91 98765 43210. Or type your issue here, and we'll guide you as fast as possible.",
+  swelling: "Facial swelling can be serious. Apply a cold compress and seek urgent care. Call our emergency line: +91 98765 43210.",
+  bleedinggums: "Bleeding gums may indicate infection. Rinse gently with saltwater and schedule an urgent checkup.",
+  toothache: "A toothache could be caused by decay, infection, or injury. Rinse with warm saltwater, avoid very hot or cold foods, and take an over-the-counter pain reliever if needed. Please call our 24/7 emergency helpline: +91 98765 43210 to book an urgent checkup.",
+  "knocked out tooth": "Keep the tooth moist in milk or saliva and call our emergency helpline immediately.",
+  "severe toothache": "Take an over-the-counter pain reliever and avoid very hot/cold foods. Contact us right away.",
+  "jaw pain": "Jaw pain could indicate TMJ or injury. Avoid chewing hard foods and call for evaluation.",
+  "broken braces": "Cover sharp ends with orthodontic wax and book a quick repair appointment.",
+  "bleeding": "Continuous bleeding in the mouth can indicate infection or injury. Rinse gently with saltwater, apply light pressure with a clean gauze, and avoid spitting. Please call our 24/7 emergency helpline: +91 98765 43210 for urgent assistance.",
+  "loose crown": "Try to keep the crown in place with dental cement or toothpaste. Contact us ASAP.",
+  pain: "Persistent or severe tooth pain may indicate infection or nerve issues. Take an over-the-counter pain reliever, avoid very hot or cold foods, and book an urgent appointment with us. If the pain is unbearable, please call our 24/7 emergency line: +91 98765 43210.",
+  abscess: "Dental abscess is an emergency. Rinse with warm salt water and seek urgent treatment.",
+  chipped: "Save any broken tooth pieces, rinse your mouth with warm water, and schedule an emergency appointment.",
   "knocked out": "Keep the tooth moist in milk or saliva and call our emergency helpline immediately.",
   severe: "This could be serious. Contact our 24/7 emergency line: +91 98765 43210 right away.",
   jaw: "Jaw pain or injury may indicate a fracture or TMJ issue. Keep your jaw stabilized and call for emergency evaluation.",
@@ -87,22 +94,22 @@
   implant: "Loose or painful dental implants require urgent evaluation. Avoid chewing on the affected side and call us.",
   bridge: "A fractured bridge needs prompt repair. Stop using it and schedule an emergency visit.",
   issue: "Please describe your issue in detail. For emergencies, call our 24/7 helpline: +91 98765 43210.",
-  "issues": "Could you share more details about your issues? If urgent, please call +91 98765 43210.",
+  issues: "Could you share more details about your issues? If urgent, please call +91 98765 43210.",
   problem: "Tell me your dental problem, and I'll guide you. For emergencies, call +91 98765 43210 immediately.",
   problems: "Describe your dental problems for assistance. For urgent care, contact +91 98765 43210.",
   "can't eat": "Difficulty eating can signal a serious issue. Avoid hard foods and call +91 98765 43210.",
   "face swollen": "Severe facial swelling is an emergency. Apply cold compresses and call our 24/7 helpline right away: +91 98765 43210.",
-        "teeth whitening safe": "Our whitening is safe, using pro-grade gels. Slight sensitivity possible. Ready to book?",
-        "braces duration": "Braces take 1–3 years. Metal’s budget-friendly, ceramic’s discreet. Want a consultation?",
-        "cost of implants": "Implants cost ₹25,000/tooth—durable, natural-looking, long-lasting. Interested?",
-        "root canal pain": "Our root canals are comfortable with anesthesia. Mild soreness fades fast. Book one?",
-        "dental insurance": "We accept most insurance plans. Bring details to your visit or we’ll verify for you.",
+  "teeth whitening safe": "Our whitening is safe, using pro-grade gels. Slight sensitivity possible. Ready to book?",
+  "braces duration": "Braces take 1–3 years. Metal’s budget-friendly, ceramic’s discreet. Want a consultation?",
+  "cost of implants": "Implants cost ₹25,000/tooth—durable, natural-looking, long-lasting. Interested?",
+  "root canal pain": "Our root canals are comfortable with anesthesia. Mild soreness fades fast. Book one?",
+  "dental insurance": "We accept most insurance plans. Bring details to your visit or we’ll verify for you.",
         
         location: (
           <span>
-            We're at 2nd Floor, Smile Plaza, Kodungallur, Kerala.{" "}
+            Third Floor, Plot no 8-1 & 8-2, Khajaguda - Nanakramguda Rd, Prashant Hills, Rai Durg, Hyderabad, Telangana 500032.{" "}
             <a
-              href="https://www.google.com/maps/place/Smile+Plaza,+Kodungallur,+Kerala/"
+              href="https://maps.app.goo.gl/235j3sVGXmCtV7y27"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 underline hover:text-blue-700"
@@ -113,9 +120,9 @@
         ),
         "where is clinic located": (
           <span>
-            Find us at 2nd Floor, Smile Plaza, Kodungallur, Kerala.{" "}
+          Third Floor, Plot no 8-1 & 8-2, Khajaguda - Nanakramguda Rd, Prashant Hills, Rai Durg, Hyderabad, Telangana 500032{" "}
             <a
-              href="https://www.google.com/maps/place/Smile+Plaza,+Kodungallur,+Kerala/"
+              href="https://maps.app.goo.gl/235j3sVGXmCtV7y27"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 underline hover:text-blue-700"
@@ -124,42 +131,42 @@
             </a>.
           </span>
         ),
-        "contact number": "Call us at +91 98765 43210 — 24/7 emergency support available!",
-        "phone number": "Reach us at +91 98765 43210 anytime. Want to book an appointment?",
-        "opening hours": "Open Mon–Sat, 9 AM–6 PM; Sundays only for emergencies.",
-        "appointment cancellation": "Cancel by calling +91 98765 43210 or reply here. Want to reschedule?",
-        "dental cleaning": "Cleaning includes scaling and polishing, 30–45 min, painless. Book a session?",
-        "gum disease": "Gum issues? We treat swelling or bleeding with cleaning. Book a checkup?",
-        "kids dental": "Kid-friendly checkups with sealants and fluoride. Want to book for your child?",
-        "tooth extraction": "Extractions use anesthesia for comfort and quick recovery. Need one?",
-        "cavity prevention": "Brush, floss, avoid sugar, and see us every 6 months. Want to book a preventive checkup?",
-        "whitening duration": "In-clinic whitening takes ~1 hour; results last 6–12 months. Interested?",
-        "first visit": "First time? Don’t worry, we’ll do a friendly consult, X-ray, and cleaning if needed.",
-        "is whitening permanent": "Teeth whitening isn’t permanent; results usually last 6–12 months with proper care.",
-        "same-day appointment": "We offer same-day slots for urgent cases. Would you like me to check availability?",
-        "do you treat kids": "Yes! We’re a kid-friendly clinic with special care for children. Want to book a pediatric consult?",
-        "braces care tips": "Brush after every meal, avoid sticky foods, and use wax for irritation. Want a full guide?",
-        "payment methods": "We accept cash, UPI, cards, and major insurance plans. Need EMI details?",
-        "follow-up after treatment": "Most treatments require a quick follow-up in 1–2 weeks. Should I set a reminder?",
-        "pain after extraction": "Mild pain is normal for 2–3 days. Use prescribed meds and cold packs. Severe pain? Call us!",
-        "implant healing time": "Implants take 3–6 months to fully integrate. We’ll guide you through every step.",
-        "pregnancy dental care": "Routine cleanings and urgent care are safe during pregnancy. Want to schedule a gentle checkup?",
-        "teeth sensitivity after whitening": "Some sensitivity is normal and fades in 24–48 hours. Avoid hot/cold drinks briefly.",
-        "retainer care": "Clean retainers daily with mild soap, not toothpaste. Want a full care guide?",
-        "do you do night guards": "Yes, we provide custom night guards for grinding. Interested?",
-        "do you do cosmetic dentistry": "Absolutely! We offer veneers, bonding, and smile makeovers. Want a consult?",
-        "bad taste in mouth": "Could be gum infection or dry mouth. Schedule a checkup to be sure?",
-        "loose tooth adult": "A loose adult tooth needs urgent care to prevent loss. Book an emergency visit?",
-        "broken filling": "Broken filling? Avoid chewing on that side and book an appointment ASAP.",
-        "do you treat seniors": "Yes, we offer senior-friendly care including dentures and implants. Want more info?",
-        "scaling frequency": "Scaling is recommended every 6–8 months for healthy gums. Shall I book you in?",
-        "orthodontic consult": "Our orthodontist can guide you on braces or aligners. Book a free consultation?",
-        "aligners vs braces": "Aligners are invisible and removable; braces are fixed but effective. Want a cost comparison?",
-        "do you do x-rays": "Yes, we have in-clinic digital X-rays — quick and low-radiation. Need one booked?",
-        issue: "Can you describe the issue in detail? If it's urgent, please call +91 98765 43210 now.",
-        issues: "Could you share more about the issues you're facing? I'm here to help.",
-        problem: "Let me know your dental problem and I’ll suggest the next steps.",
-        problems: "Tell me your concerns and I’ll suggest the next steps.",
+         "contact number": "Call us at +91 98765 43210 — 24/7 emergency support available!",
+  "phone number": "Reach us at +91 98765 43210 anytime. Want to book an appointment?",
+  "opening hours": "Open Mon–Sat, 9 AM–6 PM; Sundays only for emergencies.",
+  "appointment cancellation": "Cancel by calling +91 98765 43210 or reply here. Want to reschedule?",
+  "dental cleaning": "Cleaning includes scaling and polishing, 30–45 min, painless. Book a session?",
+  "gum disease": "Gum issues? We treat swelling or bleeding with cleaning. Book a checkup?",
+  "kids dental": "Kid-friendly checkups with sealants and fluoride. Want to book for your child?",
+  "tooth extraction": "Extractions use anesthesia for comfort and quick recovery. Need one?",
+  "cavity prevention": "Brush, floss, avoid sugar, and see us every 6 months. Want to book a preventive checkup?",
+  "whitening duration": "In-clinic whitening takes ~1 hour; results last 6–12 months. Interested?",
+  "first visit": "First time? Don’t worry, we’ll do a friendly consult, X-ray, and cleaning if needed.",
+  "is whitening permanent": "Teeth whitening isn’t permanent; results usually last 6–12 months with proper care.",
+  "same-day appointment": "We offer same-day slots for urgent cases. Would you like me to check availability?",
+  "do you treat kids": "Yes! We’re a kid-friendly clinic with special care for children. Want to book a pediatric consult?",
+  "braces care tips": "Brush after every meal, avoid sticky foods, and use wax for irritation. Want a full guide?",
+  "payment methods": "We accept cash, UPI, cards, and major insurance plans. Need EMI details?",
+  "follow-up after treatment": "Most treatments require a quick follow-up in 1–2 weeks. Should I set a reminder?",
+  "pain after extraction": "Mild pain is normal for 2–3 days. Use prescribed meds and cold packs. Severe pain? Call us!",
+  "implant healing time": "Implants take 3–6 months to fully integrate. We’ll guide you through every step.",
+  "pregnancy dental care": "Routine cleanings and urgent care are safe during pregnancy. Want to schedule a gentle checkup?",
+  "teeth sensitivity after whitening": "Some sensitivity is normal and fades in 24–48 hours. Avoid hot/cold drinks briefly.",
+  "retainer care": "Clean retainers daily with mild soap, not toothpaste. Want a full care guide?",
+  "do you do night guards": "Yes, we provide custom night guards for grinding. Interested?",
+  "do you do cosmetic dentistry": "Absolutely! We offer veneers, bonding, and smile makeovers. Want a consult?",
+  "bad taste in mouth": "Could be gum infection or dry mouth. Schedule a checkup to be sure?",
+  "loose tooth adult": "A loose adult tooth needs urgent care to prevent loss. Book an emergency visit?",
+  "broken filling": "Broken filling? Avoid chewing on that side and book an appointment ASAP.",
+  "do you treat seniors": "Yes, we offer senior-friendly care including dentures and implants. Want more info?",
+  "scaling frequency": "Scaling is recommended every 6–8 months for healthy gums. Shall I book you in?",
+  "orthodontic consult": "Our orthodontist can guide you on braces or aligners. Book a free consultation?",
+  "aligners vs braces": "Aligners are invisible and removable; braces are fixed but effective. Want a cost comparison?",
+  "do you do x-rays": "Yes, we have in-clinic digital X-rays — quick and low-radiation. Need one booked?",
+  issue: "Can you describe the issue in detail? If it's urgent, please call +91 98765 43210 now.",
+  issues: "Could you share more about the issues you're facing? I'm here to help.",
+  problem: "Let me know your dental problem and I’ll suggest the next steps.",
+  problems: "Tell me your concerns and I’ll suggest the next steps.",
       };
 
       const sendEmail = async (data) => {
@@ -379,7 +386,7 @@ if (emergencyKeywords.some((word) => lower.includes(word))) {
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    SmileCare Support
+                    SoraDental Support
                   </span>
                   <motion.button
                     onClick={() => setOpen(false)}
