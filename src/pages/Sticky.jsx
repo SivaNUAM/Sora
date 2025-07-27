@@ -35,24 +35,23 @@ export default function Sticky() {
   if (!show) return null;
 
   return (
-    <a href="/appointments">
-    <motion.button 
-      // className="fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full shadow-lg z-50 flex items-center gap-2"
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 
-            bg-white text-[#800000] font-semibold rounded-full 
-            border-2 border-[#800000] shadow-lg z-50 
-            flex items-center gap-2 
-            transition-all duration-500 ease-in-out
-            hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.5)]"
+   <a href="/appointments">
+  <motion.button 
+    className="fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 
+          bg-white text-[#800000] font-semibold rounded-full 
+          border-2 border-[#800000] shadow-lg z-50 
+          flex items-center gap-2 cursor-pointer
+          transition-all duration-500 ease-in-out
+          hover:bg-[#800000] hover:text-white hover:shadow-[0_0_15px_rgba(128,0,0,0.5)]"
+    initial={{ scale: 0.8, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    whileHover={{ scale: 1.1 }}
+    aria-label="Book Appointment"
+  >
+    <Calendar size={20} />
+    Book Appointment
+  </motion.button>
+</a>
 
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.1 }}
-      aria-label="Book Appointment"
-    >
-      <Calendar size={20} />
-      Book Appointment
-    </motion.button>
-    </a>
   );
 }
