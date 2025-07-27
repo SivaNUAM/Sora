@@ -348,7 +348,7 @@ if (emergencyKeywords.some((word) => lower.includes(word))) {
             </AnimatePresence>
             <motion.button
               onClick={() => setOpen(!open)}
-              className="relative w-14 h-14 rounded-full bg-gradient-to-r from-green-400 to-teal-500 text-white text-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center"
+              className="relative w-14 h-14 rounded-full bg-gradient-to-r from-red-400 to-teal-500 text-white text-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center"
               animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               whileHover={{ scale: 1.1, rotate: 10 }}
@@ -366,14 +366,15 @@ if (emergencyKeywords.some((word) => lower.includes(word))) {
 
           <AnimatePresence>
             {open && (
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.3 }}
-                className="fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col text-sm overflow-hidden z-50"
-              >
-                <div className="bg-gradient-to-r from-green-500 to-teal-600 text-white p-4 font-bold flex justify-between items-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 50 }}
+                  transition={{ duration: 0.3 }}
+                  className="fixed bottom-[120px] left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col text-sm overflow-hidden z-50 sm:bottom-24 sm:right-6 sm:left-auto sm:translate-x-0 sm:w-96"
+                  style={{ marginRight: '-8px' }}
+                >
+               <div className="bg-gradient-to-r from-[#800000] to-[#a52a2a] text-white p-4 font-bold flex justify-between items-center">
                   <span className="flex items-center">
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -462,7 +463,7 @@ if (emergencyKeywords.some((word) => lower.includes(word))) {
                   />
                   <motion.button
                     onClick={() => sendMessage()}
-                    className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-4 text-sm"
+                    className="bg-gradient-to-r from-[#800000] to-[#a52a2a] text-white px-4 text-sm"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >

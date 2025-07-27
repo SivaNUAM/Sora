@@ -72,7 +72,7 @@ const Home = () => {
 
   return (
     <div>
-    //   {/* Hero Section */}
+   {/* Hero Section */}
     {/* //   <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-neutral-900 to-neutral-800 text-white">
     //     <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0 scale-110 transition-transform duration-[25s] ease-in-out hover:scale-100 opacity-70">
     //       <source src={video2} type="video/mp4" />
